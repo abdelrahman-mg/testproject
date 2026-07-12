@@ -44,6 +44,7 @@ img,svg{display:block;max-width:100%}
 .card-section{
   max-width:420px;margin:56px auto;padding:0 18px;
 }
+.hero-section{margin:0}
 .card{
   background:
     radial-gradient(circle at 12% 18%,rgba(184,147,90,.55) 0.6px,transparent 1.1px) 0 0/38px 38px,
@@ -120,7 +121,7 @@ img,svg{display:block;max-width:100%}
   background:
     radial-gradient(circle at 20% 30%,rgba(200,165,100,.6) 0.9px,transparent 1.4px) 0 0/22px 22px,
     radial-gradient(circle at 65% 70%,rgba(200,165,100,.5) 0.8px,transparent 1.3px) 0 0/29px 29px,
-    linear-gradient(160deg,#f2ecf5 0%,#e2d6e9 55%,#d4c4dc 100%);
+    linear-gradient(160deg,#fdfbf9 0%,#f5efe9 55%,#ece2d8 100%);
 }
 .envelope-body::before,.envelope-body::after{
   content:"";position:absolute;top:0;bottom:0;width:50%;
@@ -133,7 +134,7 @@ img,svg{display:block;max-width:100%}
   background:
     radial-gradient(circle at 30% 40%,rgba(200,165,100,.6) 0.9px,transparent 1.4px) 0 0/22px 22px,
     radial-gradient(circle at 70% 25%,rgba(200,165,100,.5) 0.8px,transparent 1.3px) 0 0/29px 29px,
-    linear-gradient(160deg,#ede4f0,#d9c8e0);
+    linear-gradient(160deg,#faf6f2,#f0e6dc);
   clip-path:polygon(0 0,100% 0,50% 94%);
   transform-origin:top center;
   transition:transform 1.3s cubic-bezier(.6,0,.3,1);
@@ -170,13 +171,13 @@ img,svg{display:block;max-width:100%}
 }
 .enter-copy .tap-ar{font-family:"Aref Ruqaa",serif;font-size:.9rem;color:var(--ink-soft);margin-top:4px;direction:rtl}
 
-/* ── hero photo-card (arched, real photo + curtain reveal) ─ */
+/* ── hero photo (full-bleed, real photo + curtain reveal) ─ */
 .hero-card{
   padding:0;overflow:hidden;
-  border-radius:50% 50% 8px 8px / 130px 130px 8px 8px;
+  border-radius:0;box-shadow:none;background:none;
 }
 .hero-photo-wrap{
-  position:relative;min-height:460px;
+  position:relative;min-height:100svh;
 }
 .hero-photo{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;
@@ -344,7 +345,7 @@ footer{
 
 <div id="site-wrapper">
 
-<section class="card-section reveal">
+<section class="hero-section reveal">
   <div class="card hero-card">
     <div class="hero-photo-wrap" id="heroPhotoWrap">
       <img class="hero-photo" src="hero-arch.jpg" alt="Grand archway with chandelier">
