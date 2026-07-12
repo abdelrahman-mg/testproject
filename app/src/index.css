@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #5b4636;
+  --color-ink-soft: #8a7466;
+  --color-gold: #b8935a;
+  --color-gold-dark: #93713e;
+  --color-olive: #6f6b45;
+  --color-olive-dark: #54512f;
+  --color-blush: #f3dde0;
+  --color-blush-dark: #e7c6cb;
+  --color-cream: #faf3ec;
+
+  --font-serif: "Cormorant Garamond", serif;
+  --font-display: "Cinzel", serif;
+  --font-script: "Beau Rivage", cursive;
+  --font-arabic: "Amiri", serif;
+  --font-arabic-title: "Aref Ruqaa", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  background: var(--color-cream);
+  overflow-x: hidden;
+}
+
+.paper-grain {
+  background-image:
+    radial-gradient(circle at 12% 22%, rgba(120, 90, 70, 0.06) 0.7px, transparent 1.1px),
+    radial-gradient(circle at 68% 58%, rgba(120, 90, 70, 0.05) 0.6px, transparent 1px),
+    radial-gradient(circle at 38% 82%, rgba(120, 90, 70, 0.06) 0.7px, transparent 1.1px),
+    radial-gradient(circle at 85% 12%, rgba(120, 90, 70, 0.045) 0.6px, transparent 1px);
+  background-size: 34px 34px, 48px 48px, 57px 57px, 41px 41px;
+}
+
+.script {
+  font-family: var(--font-script);
+}
+.ar {
+  font-family: var(--font-arabic);
+  direction: rtl;
+}
+.ar-title {
+  font-family: var(--font-arabic-title);
+  direction: rtl;
+}
+
+.flourish-line::before,
+.flourish-line::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
