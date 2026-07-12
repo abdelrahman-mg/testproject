@@ -238,6 +238,11 @@ img,svg{display:block;max-width:100%}
   border-radius:3px;transition:background .3s ease;
 }
 .directions-btn:hover{background:var(--olive-dk)}
+.map-embed{
+  border-radius:8px;overflow:hidden;border:1px solid var(--lav-3);
+  box-shadow:0 12px 30px rgba(90,60,40,.15);
+}
+.map-embed iframe{display:block;width:100%;height:280px;border:0}
 
 /* ── RSVP card ────────────────────────────────────── */
 .rsvp-card{text-align:left}
@@ -334,6 +339,24 @@ footer{
 </section>
 
 <section class="card-section reveal">
+  <div class="card invite-card">
+    <div class="card-title">A Word From Us</div>
+    <div class="flourish">
+      <svg viewBox="0 0 44 16" fill="none" stroke="currentColor" stroke-width="1"><circle cx="3" cy="8" r="1.6" fill="currentColor" stroke="none"/><path d="M22 1l4 7-4 7-4-7z" fill="currentColor" stroke="none"/><path d="M9 8c3-3 6-3 9 0M35 8c-3-3-6-3-9 0" stroke-width="0.9"/><circle cx="41" cy="8" r="1.6" fill="currentColor" stroke="none"/></svg>
+    </div>
+    <div class="bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+    <svg class="bloom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+      <circle cx="12" cy="12" r="2.2"/>
+      <path d="M12 2c2 3-1 6-2 6s-4-3-2-6zM12 22c2-3-1-6-2-6s-4 3-2 6zM2 12c3-2 6 1 6 2s-3 4-6 2zM22 12c-3-2-6 1-6 2s3 4 6 2z"/>
+    </svg>
+    <p class="ayah ar">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
+    <p class="ayah-en">"And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them, and He has put love and mercy between you."</p>
+    <p class="msg-ar ar">يسعدنا ويشرفنا دعوتكم لمشاركتنا أجمل لحظات حياتنا بحضوركم حفل زفافنا محمود ومرنا</p>
+    <p class="msg">With hearts full of joy, we invite you to celebrate our wedding as we begin our new life together.</p>
+  </div>
+</section>
+
+<section class="card-section reveal">
   <div class="card">
     <div class="card-title">The Celebration Begins</div>
     <div class="flourish">
@@ -374,25 +397,6 @@ footer{
         <path d="M218 40 L218 20 Q232 12 226 2 Q238 8 240 -2 Q242 10 240 40Z"/>
       </svg>
     </div>
-    <a class="directions-btn" id="directions-link" href="#" target="_blank" rel="noopener">Open In Google Maps</a>
-  </div>
-</section>
-
-<section class="card-section reveal">
-  <div class="card invite-card">
-    <div class="card-title">A Word From Us</div>
-    <div class="flourish">
-      <svg viewBox="0 0 44 16" fill="none" stroke="currentColor" stroke-width="1"><circle cx="3" cy="8" r="1.6" fill="currentColor" stroke="none"/><path d="M22 1l4 7-4 7-4-7z" fill="currentColor" stroke="none"/><path d="M9 8c3-3 6-3 9 0M35 8c-3-3-6-3-9 0" stroke-width="0.9"/><circle cx="41" cy="8" r="1.6" fill="currentColor" stroke="none"/></svg>
-    </div>
-    <div class="bismillah-ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-    <svg class="bloom" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-      <circle cx="12" cy="12" r="2.2"/>
-      <path d="M12 2c2 3-1 6-2 6s-4-3-2-6zM12 22c2-3-1-6-2-6s-4 3-2 6zM2 12c3-2 6 1 6 2s-3 4-6 2zM22 12c-3-2-6 1-6 2s3 4 6 2z"/>
-    </svg>
-    <p class="ayah ar">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً</p>
-    <p class="ayah-en">"And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquility with them, and He has put love and mercy between you."</p>
-    <p class="msg-ar ar">يسعدنا ويشرفنا دعوتكم لمشاركتنا أجمل لحظات حياتنا بحضوركم حفل زفافنا محمود ومرنا</p>
-    <p class="msg">With hearts full of joy, we invite you to celebrate our wedding as we begin our new life together.</p>
   </div>
 </section>
 
@@ -432,7 +436,32 @@ footer{
   </div>
 </section>
 
+<section class="card-section reveal">
+  <div class="card">
+    <div class="card-title">Itinéraire Google Maps</div>
+    <div class="flourish">
+      <svg viewBox="0 0 44 16" fill="none" stroke="currentColor" stroke-width="1"><circle cx="3" cy="8" r="1.6" fill="currentColor" stroke="none"/><path d="M22 1l4 7-4 7-4-7z" fill="currentColor" stroke="none"/><path d="M9 8c3-3 6-3 9 0M35 8c-3-3-6-3-9 0" stroke-width="0.9"/><circle cx="41" cy="8" r="1.6" fill="currentColor" stroke="none"/></svg>
+    </div>
+    <div class="map-embed">
+      <iframe id="mapEmbed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+    <a class="directions-btn" id="directions-link" href="#" target="_blank" rel="noopener">Ouvrir dans Maps</a>
+  </div>
+</section>
+
 <footer>
+  <svg class="chandelier" width="70" height="56" viewBox="0 0 70 56" fill="none" stroke="currentColor" stroke-width="1.1" style="margin:0 auto 14px;color:var(--gold-dk);opacity:.8">
+    <line x1="35" y1="0" x2="35" y2="12"/>
+    <circle cx="35" cy="18" r="6"/>
+    <path d="M20 24 Q35 38 50 24"/>
+    <path d="M35 24 L35 44"/>
+    <path d="M22 25 L14 40"/>
+    <path d="M48 25 L56 40"/>
+    <circle cx="14" cy="42" r="2"/>
+    <circle cx="35" cy="46" r="2"/>
+    <circle cx="56" cy="42" r="2"/>
+  </svg>
+  <div class="script" style="font-size:1.6rem;color:var(--ink);margin-bottom:14px">Un plaisir de vous accueillir</div>
   <span class="foot-names">Mahmoud &amp; Merna</span>
   11 · 08 · 2026 &nbsp;·&nbsp; Police Officers Club, Zamalek, Cairo<br><br>
   Made with 🤍 for our special day
@@ -450,6 +479,7 @@ footer{
   var RSVP_URL='APPS_SCRIPT_URL_HERE'; // paste your Google Apps Script Web App URL here to make RSVP submissions save to a Google Sheet
   var VENUE_QUERY='Police Officers Club, Zamalek, Cairo'; // update with the real venue name for the directions link
   document.getElementById('directions-link').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(VENUE_QUERY);
+  document.getElementById('mapEmbed').src='https://www.google.com/maps?q='+encodeURIComponent(VENUE_QUERY)+'&output=embed';
 
   var colors=['rgba(184,147,90,0.7)','rgba(111,107,69,0.5)','rgba(203,191,214,0.8)','rgba(147,113,62,0.55)'];
   var container=document.getElementById('petals');
