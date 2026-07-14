@@ -232,11 +232,9 @@ img,svg{display:block;max-width:100%}
 .venue-city{margin-top:3px;color:var(--ink-soft);font-size:1rem}
 .venue-photo{
   margin-top:24px;border-radius:6px;overflow:hidden;
-  background:linear-gradient(180deg,#f1e2c4 0%,#dcb987 45%,#a9723f 100%);
-  position:relative;min-height:190px;display:flex;align-items:flex-end;justify-content:center;
+  box-shadow:0 12px 30px rgba(90,60,40,.2);
 }
-.venue-photo svg{position:relative;z-index:2;color:#4a2f16}
-.venue-photo .palms2{position:absolute;left:0;right:0;bottom:0;color:#3f2a14;opacity:.7;z-index:1}
+.venue-photo img{display:block;width:100%;height:260px;object-fit:cover}
 
 /* ── itinerary/map card ───────────────────────────── */
 .map-box{
@@ -407,16 +405,7 @@ footer{
     <div class="venue-name">Police Officers Club</div>
     <div class="venue-city">Zamalek, Cairo, Egypt</div>
     <div class="venue-photo">
-      <svg width="70%" viewBox="0 0 240 130" fill="none" stroke="currentColor" stroke-width="1.2">
-        <path d="M70 55 Q120 15 170 55 L170 128 L70 128 Z"/>
-        <path d="M100 128 L100 88 Q120 68 140 88 L140 128"/>
-        <path d="M40 128 L40 78 Q55 63 70 78 L70 128"/>
-        <path d="M170 128 L170 78 Q185 63 200 78 L200 128"/>
-      </svg>
-      <svg class="palms2" width="100%" height="40" viewBox="0 0 240 40" preserveAspectRatio="none" fill="currentColor">
-        <path d="M0 40 L0 22 Q14 14 8 4 Q20 10 22 0 Q24 12 32 6 Q28 18 22 22 L22 40Z"/>
-        <path d="M218 40 L218 20 Q232 12 226 2 Q238 8 240 -2 Q242 10 240 40Z"/>
-      </svg>
+      <img src="venue-photo.jpg" alt="Police Officers Club, Zamalek">
     </div>
   </div>
 </section>
