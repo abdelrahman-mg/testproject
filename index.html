@@ -261,44 +261,6 @@ img,svg{display:block;max-width:100%}
 }
 .map-embed iframe{display:block;width:100%;height:280px;border:0}
 
-/* ── RSVP card ────────────────────────────────────── */
-.rsvp-card{text-align:left}
-.rsvp-card .card-title,.rsvp-card .flourish{text-align:center;margin-left:auto;margin-right:auto}
-.field{margin-bottom:20px}
-.field label{
-  display:block;font-family:"Cormorant Garamond",serif;font-size:.95rem;
-  color:var(--ink);margin-bottom:7px;
-}
-.field label .ar-inline{font-family:"Amiri",serif;direction:rtl;display:inline-block;margin-inline-start:6px;color:var(--ink-soft);font-size:.9rem}
-.field input[type=text],.field input[type=number],.field textarea{
-  width:100%;padding:10px 12px;border:1px solid #cfc3d6;border-radius:4px;
-  font-family:"Cormorant Garamond",serif;font-size:1.02rem;background:#fff;color:var(--ink);
-}
-.field textarea{min-height:84px;resize:vertical}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold)}
-.radio-row{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
-.radio-opt{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:1.02rem}
-.radio-opt .dot{
-  width:16px;height:16px;border-radius:50%;border:1.4px solid var(--ink-soft);
-  flex-shrink:0;position:relative;
-}
-.radio-opt.active .dot::after{
-  content:"";position:absolute;inset:3px;border-radius:50%;background:var(--olive);
-}
-.radio-opt.active{color:var(--ink);font-weight:600}
-.submit-btn{
-  display:block;margin:0 auto;width:100%;padding:13px;background:var(--olive);color:#fff;border:none;border-radius:4px;
-  font-family:"Cinzel",serif;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
-  cursor:pointer;transition:background .3s ease;
-}
-.submit-btn:hover{background:var(--olive-dk)}
-.submit-btn:disabled{opacity:.6;cursor:default}
-.success-msg{display:none;text-align:center;padding:14px 0}
-.success-msg.show{display:block}
-.success-msg .big-icon{font-size:2.4rem;margin-bottom:12px}
-.success-msg h3{font-family:"Beau Rivage",cursive;font-size:1.8rem;margin-bottom:8px;color:var(--ink)}
-.success-msg p{color:var(--ink-soft);font-size:1rem;line-height:1.7}
-
 /* ── footer ───────────────────────────────────────── */
 footer{
   text-align:center;padding:50px 24px 60px;
@@ -411,42 +373,6 @@ footer{
 </section>
 
 <section class="card-section reveal">
-  <div class="card rsvp-card">
-    <div class="card-title">Confirm Your Attendance</div>
-    <div class="flourish">
-      <svg viewBox="0 0 44 16" fill="none" stroke="currentColor" stroke-width="1"><circle cx="3" cy="8" r="1.6" fill="currentColor" stroke="none"/><path d="M22 1l4 7-4 7-4-7z" fill="currentColor" stroke="none"/><path d="M9 8c3-3 6-3 9 0M35 8c-3-3-6-3-9 0" stroke-width="0.9"/><circle cx="41" cy="8" r="1.6" fill="currentColor" stroke="none"/></svg>
-    </div>
-    <div id="rsvp-form">
-      <div class="field">
-        <label>Full Name <span class="ar-inline">الاسم</span></label>
-        <input type="text" id="guest-name" placeholder="">
-      </div>
-      <div class="field">
-        <label>Number of Guests <span class="ar-inline">عدد الأشخاص</span></label>
-        <input type="number" id="guest-count" min="1" value="1">
-      </div>
-      <div class="field">
-        <label>Will you attend? <span class="ar-inline">هل ستحضر؟</span></label>
-        <div class="radio-row">
-          <div class="radio-opt" id="btn-yes" onclick="setAttend('yes')"><span class="dot"></span> Yes, I will be there</div>
-          <div class="radio-opt" id="btn-no" onclick="setAttend('no')"><span class="dot"></span> Sorry, I cannot make it</div>
-        </div>
-      </div>
-      <div class="field">
-        <label>Message <span class="ar-inline">رسالة</span></label>
-        <textarea id="guest-msg" placeholder=""></textarea>
-      </div>
-      <button class="submit-btn" onclick="submitRSVP()">SUBMIT</button>
-    </div>
-    <div class="success-msg" id="success-msg">
-      <div class="big-icon" id="success-icon">🎉</div>
-      <h3 id="success-title">Thank You</h3>
-      <p id="success-text">We have received your RSVP and we cannot wait to celebrate with you!</p>
-    </div>
-  </div>
-</section>
-
-<section class="card-section reveal">
   <div class="card">
     <div class="card-title">Itinéraire Google Maps</div>
     <div class="flourish">
@@ -486,7 +412,6 @@ footer{
 
 <script>
 (function(){
-  var RSVP_URL='APPS_SCRIPT_URL_HERE'; // paste your Google Apps Script Web App URL here to make RSVP submissions save to a Google Sheet
   var VENUE_QUERY='Police Officers Club, Zamalek, Cairo'; // update with the real venue name for the directions link
   document.getElementById('directions-link').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(VENUE_QUERY);
   document.getElementById('mapEmbed').src='https://www.google.com/maps?q='+encodeURIComponent(VENUE_QUERY)+'&output=embed';
@@ -559,54 +484,14 @@ footer{
     else{audio.play().then(function(){setMusicUI(true);}).catch(function(){});}
   };
 
-  var attend='';
-  window.setAttend=function(val){
-    attend=val;
-    document.getElementById('btn-yes').className='radio-opt'+(val==='yes'?' active':'');
-    document.getElementById('btn-no').className='radio-opt'+(val==='no'?' active':'');
-  };
-  window.submitRSVP=function(){
-    var name=document.getElementById('guest-name').value.trim();
-    var count=document.getElementById('guest-count').value;
-    var msg=document.getElementById('guest-msg').value.trim();
-    if(!name){alert('Please enter your name');return;}
-    if(!attend){alert('Please let us know if you will attend');return;}
-    var btn=document.querySelector('.submit-btn');
-    btn.disabled=true;btn.textContent='Sending...';
-
-    function showSuccess(){
-      document.getElementById('rsvp-form').style.display='none';
-      var s=document.getElementById('success-msg');s.classList.add('show');
-      if(attend==='no'){
-        document.getElementById('success-icon').textContent='💌';
-        document.getElementById('success-title').textContent='We will miss you';
-        document.getElementById('success-text').textContent='Thank you for letting us know. Your kind message means the world to us.';
-      }
-    }
-
-    if(RSVP_URL==='APPS_SCRIPT_URL_HERE'){
-      setTimeout(showSuccess,400);
-      return;
-    }
-    fetch(RSVP_URL,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({name:name,guests:count,attending:attend==='yes'?'Yes':'No',message:msg}),
-      mode:'no-cors'
-    }).then(showSuccess).catch(function(){
-      btn.disabled=false;btn.textContent='SUBMIT';
-      alert('Something went wrong. Please try again.');
-    });
-  };
-
   var sh=document.getElementById('scrollHint');
   if(sh){
-    var rsvpEl=document.querySelector('.rsvp-card').closest('section');
-    if(rsvpEl){
+    var mapEl=document.querySelector('.map-embed').closest('section');
+    if(mapEl){
       new IntersectionObserver(function(entries){
         if(entries[0].isIntersecting){sh.style.opacity='0';sh.style.pointerEvents='none';}
         else if(window.scrollY<80){sh.style.opacity='1';sh.style.pointerEvents='auto';}
-      },{threshold:0.05}).observe(rsvpEl);
+      },{threshold:0.05}).observe(mapEl);
     }
     window.addEventListener('scroll',function(){
       if(window.scrollY>80){sh.style.opacity='0';sh.style.pointerEvents='none';}
