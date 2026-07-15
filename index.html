@@ -417,9 +417,12 @@ footer{
 
 <script>
 (function(){
-  var VENUE_QUERY='Police Officers Club, Al Borg, Zamalek, Cairo'; // update with the real venue name for the directions link
-  document.getElementById('directions-link').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(VENUE_QUERY);
-  document.getElementById('mapEmbed').src='https://www.google.com/maps?q='+encodeURIComponent(VENUE_QUERY)+'&output=embed';
+  // Exact Google Maps place ID (CID) for Police Officers Club, Al Borg, Zamalek --
+  // both the embed and the button use this single ID, so they always point to
+  // the same one confirmed pin instead of two independently-resolved text searches.
+  var VENUE_CID='14325839910525867312';
+  document.getElementById('directions-link').href='https://www.google.com/maps?cid='+VENUE_CID;
+  document.getElementById('mapEmbed').src='https://www.google.com/maps?cid='+VENUE_CID+'&output=embed';
 
   var colors=['rgba(184,147,90,0.7)','rgba(111,107,69,0.5)','rgba(203,191,214,0.8)','rgba(147,113,62,0.55)'];
   var container=document.getElementById('petals');
