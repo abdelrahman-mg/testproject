@@ -197,9 +197,13 @@ img,svg{display:block;max-width:100%}
 .hero-photo-wrap.opened .hero-curtain-l{transform:translateX(-102%)}
 .hero-photo-wrap.opened .hero-curtain-r{transform:translateX(102%)}
 .hero-text{
-  position:absolute;left:0;right:0;bottom:26px;z-index:4;text-align:center;
+  position:absolute;left:0;right:0;bottom:64px;z-index:4;text-align:center;
 }
 .hero-text .names{font-family:"Beau Rivage",cursive;font-size:clamp(2.1rem,8vw,2.8rem);color:#fff8ec;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.hero-text .ceremony-note{
+  margin-top:8px;font-family:"Cinzel",serif;letter-spacing:.12em;
+  font-size:clamp(1rem,3vw,1.25rem);color:#fff8ec;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,.5);
+}
 .hero-text .date-line{
   margin-top:10px;font-family:"Cinzel",serif;letter-spacing:.16em;
   font-size:clamp(.72rem,2.2vw,.85rem);color:#fff8ec;text-transform:uppercase;text-shadow:0 2px 8px rgba(0,0,0,.5);
@@ -311,6 +315,7 @@ footer{
       <div class="hero-curtain-r"></div>
       <div class="hero-text">
         <div class="names script">Mahmoud &amp; Merna</div>
+        <div class="ceremony-note">Wedding &amp; Katb Ktab</div>
         <div class="date-line">11 August 2026 · 7:00 PM</div>
       </div>
     </div>
@@ -363,7 +368,7 @@ footer{
       <path d="M12 0C6 0 1.5 4.4 1.5 10c0 7.5 10.5 18 10.5 18s10.5-10.5 10.5-18C22.5 4.4 18 0 12 0zm0 14a4 4 0 110-8 4 4 0 010 8z"/>
     </svg>
     <div class="venue-name">Police Officers Club</div>
-    <div class="venue-city">Zamalek, Cairo, Egypt</div>
+    <div class="venue-city">Al Borg, Zamalek, Cairo</div>
     <div class="venue-photo">
       <img src="venue-photo.jpg" alt="Police Officers Club, Zamalek">
     </div>
@@ -372,14 +377,14 @@ footer{
 
 <section class="card-section reveal">
   <div class="card">
-    <div class="card-title">Itinéraire Google Maps</div>
+    <div class="card-title">Get Directions</div>
     <div class="flourish">
       <svg viewBox="0 0 44 16" fill="none" stroke="currentColor" stroke-width="1"><circle cx="3" cy="8" r="1.6" fill="currentColor" stroke="none"/><path d="M22 1l4 7-4 7-4-7z" fill="currentColor" stroke="none"/><path d="M9 8c3-3 6-3 9 0M35 8c-3-3-6-3-9 0" stroke-width="0.9"/><circle cx="41" cy="8" r="1.6" fill="currentColor" stroke="none"/></svg>
     </div>
     <div class="map-embed">
       <iframe id="mapEmbed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
     </div>
-    <a class="directions-btn" id="directions-link" href="#" target="_blank" rel="noopener">Ouvrir dans Maps</a>
+    <a class="directions-btn" id="directions-link" href="#" target="_blank" rel="noopener">Open In Google Maps</a>
   </div>
 </section>
 
@@ -395,9 +400,9 @@ footer{
     <circle cx="35" cy="46" r="2"/>
     <circle cx="56" cy="42" r="2"/>
   </svg>
-  <div class="script" style="font-size:1.6rem;color:var(--ink);margin-bottom:14px">Un plaisir de vous accueillir</div>
+  <div class="script" style="font-size:2.1rem;color:var(--ink);margin-bottom:14px">It Would Be Our Pleasure To Welcome You</div>
   <span class="foot-names">Mahmoud &amp; Merna</span>
-  11 · 08 · 2026 &nbsp;·&nbsp; Police Officers Club, Zamalek, Cairo<br><br>
+  11 · 08 · 2026 &nbsp;·&nbsp; Police Officers Club, Al Borg, Zamalek, Cairo<br><br>
   Made with 🤍 for our special day
 </footer>
 
@@ -410,7 +415,7 @@ footer{
 
 <script>
 (function(){
-  var VENUE_QUERY='Police Officers Club, Zamalek, Cairo'; // update with the real venue name for the directions link
+  var VENUE_QUERY='Police Officers Club, Al Borg, Zamalek, Cairo'; // update with the real venue name for the directions link
   document.getElementById('directions-link').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(VENUE_QUERY);
   document.getElementById('mapEmbed').src='https://www.google.com/maps?q='+encodeURIComponent(VENUE_QUERY)+'&output=embed';
 
